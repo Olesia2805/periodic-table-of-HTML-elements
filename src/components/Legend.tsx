@@ -12,10 +12,10 @@ export function Legend({ query, onCategorySelect }: LegendProps) {
       {(Object.entries(categories) as [Category, (typeof categories)[Category]][]).map(([key, category]) => (
         <button
           key={key}
-          className="flex items-center gap-1.5 text-xs text-[#69718a] transition hover:text-[#232938]"
+          className="flex items-center gap-1.5 text-xs text-[var(--color-muted)] transition hover:text-[var(--color-heading)]"
           onClick={() => onCategorySelect(query === category.name ? '' : category.name)}
         >
-          <i className="block size-2.5 rounded-[2px]" style={{ background: category.color }} />
+          <i className="block size-2.5 rounded-[2px]" style={{ background: `var(${category.accentVariable})` }} />
           {category.name}
         </button>
       ))}
