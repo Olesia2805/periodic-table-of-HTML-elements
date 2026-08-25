@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react'
 import { categories } from '../data/categories'
 import type { ElementData } from '../types'
 
@@ -19,18 +20,17 @@ export function ElementsTable({ elements, matchingTags, hasQuery, selectedElemen
           return (
             <button
               className={[
-                categories[element.category].backgroundClass,
-                'flex min-w-0 flex-col items-start justify-center overflow-hidden rounded-[7px] border border-transparent p-[9px] text-left text-[#26303c] transition duration-150 hover:z-10 hover:-translate-y-[3px] hover:shadow-[0_8px_18px_rgba(36,41,56,.17)]',
-                isSelected ? 'z-10 -translate-y-[3px] border-[#252b3a] shadow-[0_8px_18px_rgba(36,41,56,.17)]' : '',
+                'element-card flex min-w-0 flex-col items-start justify-center overflow-hidden rounded-[7px] border bg-[var(--element-background)] p-[9px] text-left text-[var(--color-element-text)] transition duration-150 hover:z-10 hover:-translate-y-[3px] hover:shadow-[var(--shadow-element)]',
+                isSelected ? 'is-selected z-10 -translate-y-[3px] shadow-[var(--shadow-element)]' : '',
                 isDimmed ? 'opacity-[.14] hover:translate-y-0 hover:shadow-none' : '',
               ].join(' ')}
-              style={{ gridArea: element.position }}
+              style={{ gridArea: element.position, '--element-background': `var(${categories[element.category].backgroundVariable})`, '--element-accent': `var(${categories[element.category].accentVariable})` } as CSSProperties}
               key={element.tag}
               onClick={() => onSelect(isSelected ? null : element)}
               aria-pressed={isSelected}
             >
-              <span className="font-mono text-[clamp(13px,1.2vw,16px)] font-medium leading-tight">&lt;{element.tag}&gt;</span>
-              <span className="mt-[5px] w-full overflow-hidden text-ellipsis whitespace-nowrap text-[9px] text-[#1f253180]">{categories[element.category].name}</span>
+              <span className={`element-tag font-mono font-medium leading-tight ${element.tag.length > 7 ? 'text-[clamp(6px,.5vw,8px)] tracking-[-.08em]' : 'text-[clamp(13px,1.2vw,16px)]'}`}>&lt;{element.tag}&gt;</span>
+              <span className="element-label mt-[5px] w-full overflow-hidden text-ellipsis whitespace-nowrap text-[9px] text-[var(--color-element-label)]">{categories[element.category].name}</span>
             </button>
           )
         })}
