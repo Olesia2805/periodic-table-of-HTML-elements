@@ -31,9 +31,9 @@
   --color-interactive-accent: #978b98;
   --color-media-accent: #00aeb0;
   --color-embedded-accent: #7956f7;
-  --color-toggle-border: #363c57;
-  --color-toggle-background: #080b1c;
-  --color-toggle-thumb: #f8ef42;
+  --color-toggle-border: #dfe2eb;
+  --color-toggle-background: var(--color-page);
+  --color-toggle-thumb: var(--color-surface);
   --shadow-card: 0 5px 20px rgb(36 41 56 / 5%);
   --shadow-element: 0 8px 18px rgb(36 41 56 / 17%);
 }
@@ -73,7 +73,7 @@
   --color-embedded-accent: #cab2ff;
   --color-toggle-border: #343b5d;
   --color-toggle-background: #080b1c;
-  --color-toggle-thumb: #f5f6fa;
+  --color-toggle-thumb: #f8ef42;
   --shadow-card: 0 5px 20px rgb(0 0 0 / 35%);
   --shadow-element: 0 8px 22px rgb(0 0 0 / 45%);
 }

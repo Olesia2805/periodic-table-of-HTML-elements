@@ -27,7 +27,7 @@ export default function App() {
   }, [theme])
 
   return (
-    <main className="mx-auto w-[calc(100%-28px)] max-w-[1440px] py-7 text-[var(--color-text)] sm:w-[calc(100%-48px)] sm:py-[42px]">
+    <main className="mx-auto w-[calc(100%-28px)] max-w-[1800px] py-7 text-[var(--color-text)] sm:w-[calc(100%-48px)] sm:py-[42px]">
       <ElementsHeader query={query} onQueryChange={setQuery} theme={theme} onThemeToggle={() => setTheme(theme === 'light' ? 'dark' : 'light')} />
       <section className="mt-8 flex items-center justify-between gap-4 sm:mt-12">
         <p className="text-sm text-[var(--color-muted)] sm:text-base">Explore the building blocks of the web, organized by purpose.</p>
