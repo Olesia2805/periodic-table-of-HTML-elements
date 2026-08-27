@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { categories } from './data/categories'
 import { elements } from './data/elements'
 import type { ElementData } from './types'
-import { DetailCard } from './components/DetailCard'
+import { CodePlayground } from './components/CodePlayground'
 import { ElementsHeader } from './components/ElementsHeader'
 import { ElementsTable } from './components/ElementsTable'
 import { Legend } from './components/Legend'
@@ -43,7 +43,7 @@ export default function App() {
         selectedElement={selectedElement}
         onSelect={setSelectedElement}
       />
-      <DetailCard element={selectedElement} onClose={() => setSelectedElement(null)} />
+      <CodePlayground element={selectedElement} onClose={() => setSelectedElement(null)} />
     </main>
   )
 }
